@@ -1,0 +1,342 @@
+.board-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.ludo-board {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    width: 65vh;
+    height: 65vh;
+    position: relative;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.cell {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+
+.cell::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    box-sizing: border-box;
+    z-index: 11;
+}
+
+.token {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 12;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.token img {
+    width: 70%;
+    margin-top: -90%;
+    filter: drop-shadow(2px 0px 2px rgba(0, 0, 0, 0.5));
+
+}
+
+.token-group.multiple-tokens {
+    width: 60%;
+    height: 60%;
+}
+
+.token-container:nth-child(1) .token {
+    left: 50%;
+}
+
+.token-container:nth-child(2) .token {
+    left: 55%;
+}
+
+.token-container:nth-child(3) .token {
+    left: 60%;
+}
+
+.token-container:nth-child(4) .token {
+    left: 65%;
+}
+
+.token-container:nth-child(5) .token {
+    left: 70%;
+}
+
+.token-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.red-home::after,
+.green-home::after,
+.yellow-home::after,
+.blue-home::after {
+    border: unset;
+}
+
+.column:nth-child(15) .cell::after {
+    border-right: 1px solid black;
+}
+
+.column .cell:nth-child(1)::after {
+    border-top: 1px solid black;
+}
+
+.column .cell:nth-child(15)::after,
+.column .cell:nth-child(9)::after {
+    border-bottom: 1px solid black;
+}
+
+.column:nth-child(1) .cell::after,
+.column:nth-child(7) .cell::after {
+    border-left: 1px solid black;
+}
+
+.column:nth-child(7) .cell:nth-child(8)::after,
+.column:nth-child(8) .cell:nth-child(8)::after,
+.column:nth-child(9) .cell:nth-child(8)::after,
+.column:nth-child(7) .cell:nth-child(9)::after,
+.column:nth-child(8) .cell:nth-child(9)::after,
+.column:nth-child(9) .cell:nth-child(9)::after,
+.column:nth-child(7) .cell:nth-child(10)::after,
+.column:nth-child(8) .cell:nth-child(10)::after,
+.column:nth-child(9) .cell:nth-child(10)::after {
+    border-top: unset;
+}
+
+.column:nth-child(7) .cell:nth-child(7)::after,
+.column:nth-child(7) .cell:nth-child(8)::after,
+.column:nth-child(7) .cell:nth-child(9)::after,
+.column:nth-child(8) .cell:nth-child(7)::after,
+.column:nth-child(8) .cell:nth-child(8)::after,
+.column:nth-child(8) .cell:nth-child(9)::after,
+.column:nth-child(6) .cell:nth-child(7)::after,
+.column:nth-child(6) .cell:nth-child(8)::after,
+.column:nth-child(6) .cell:nth-child(9)::after {
+    border-right: unset;
+}
+
+.red-home,
+.red-start,
+.red-safe-path,
+.red-background,
+.red-out-token {
+    background-color: #F05E00;
+}
+
+.green-home,
+.green-start,
+.green-safe-path,
+.green-background,
+.green-out-token {
+    background-color: #7B996E;
+}
+
+.blue-home,
+.blue-start,
+.blue-safe-path,
+.blue-background,
+.blue-out-token {
+    background-color: #418ACB;
+}
+
+.yellow-home,
+.yellow-start,
+.yellow-safe-path,
+.yellow-background,
+.yellow-out-token {
+    background-color: #FCB325;
+}
+
+.white-path {
+    background-color: white;
+}
+
+.center {
+    background-color: transparent;
+}
+
+
+.empty {
+    background-color: transparent;
+}
+
+.board-center {
+    width: 19.98%;
+    height: 19.98%;
+    background-color: #F05E00;
+    position: absolute;
+    overflow: hidden;
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+}
+
+.triangle {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.triangle.blue {
+    background-color: #418ACB;
+    clip-path: polygon(0 100%, 100% 100%, 50% 50%);
+    bottom: 0;
+    left: 0;
+}
+
+.triangle.green {
+    background-color: #7B996E;
+    clip-path: polygon(0 0, 100% 0, 50% 50%);
+    top: 0;
+    left: 0;
+}
+
+.triangle.yellow {
+    background-color: #FCB325;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 50%);
+    bottom: 0;
+    right: 0;
+}
+
+.out-tokens {
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    width: 26.64%;
+    height: 26.64%;
+    background-color: white;
+    z-index: 13;
+}
+
+.out-tokens.red {
+    top: 6.66%;
+    left: 6.66%;
+}
+
+.out-tokens.green {
+    top: 6.66%;
+    right: 6.66%;
+}
+
+.out-tokens.blue {
+    left: 6.66%;
+    bottom: 6.66%;
+}
+
+.out-tokens.yellow {
+    bottom: 6.66%;
+    right: 6.66%;
+}
+
+.out-token {
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.out-token img {
+    width: 70%;
+    margin-top: -90%;
+    filter: drop-shadow(2px 0px 2px rgba(0, 0, 0, 0.5));
+
+}
+
+@keyframes fade-in-out {
+    0% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.3;
+    }
+}
+
+.animate {
+    animation: fade-in-out 1s infinite;
+}
+
+.dice-container {
+    margin-top: 20px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.star-cell,
+.arrow-cell-top,
+.arrow-cell-bottom,
+.arrow-cell-left,
+.arrow-cell-right {
+    background-color: white;
+}
+
+.star-icon {
+    width: 80%;
+    position: absolute;
+}
+
+.arrow-icon {
+    width: 60%;
+    position: absolute;
+}
+
+@media (max-width: 1068px) {
+    /* .board-container {
+        display: none;
+    } */
+
+}
