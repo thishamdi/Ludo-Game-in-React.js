@@ -23,6 +23,7 @@
     width: 65vh;
     height: 65vh;
     position: relative;
+    margin-bottom: 1.5rem;
 }
 
 .column {
@@ -306,8 +307,15 @@
     animation: fade-in-out 1s infinite;
 }
 
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
 .dice-container {
-    margin-top: 20px;
     width: 100px;
     height: 100px;
     display: flex;
@@ -344,4 +352,5 @@
         aspect-ratio: 1 / 1;
         position: relative;
     }
+
 }
