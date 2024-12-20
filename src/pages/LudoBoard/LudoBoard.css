@@ -4,8 +4,9 @@
     align-items: center;
     flex-direction: column;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
+    padding: 2rem;
 }
 
 .background {
@@ -334,9 +335,13 @@
     position: absolute;
 }
 
-@media (max-width: 1068px) {
-    /* .board-container {
-        display: none;
-    } */
-
+@media (max-width: 768px) {
+    .ludo-board {
+        display: grid;
+        grid-template-columns: repeat(15, 1fr);
+        width: 87vw;
+        height: unset;
+        aspect-ratio: 1 / 1;
+        position: relative;
+    }
 }
